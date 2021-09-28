@@ -1,4 +1,3 @@
-# Untitled
 
 ![capa.png](src/assets/images/capa.png)
 
