@@ -1,8 +1,7 @@
-# Untitled
 
 ![capa.png](src/assets/images/capa.png)
 
-Este projeto (MyContacts) tem o intuito de aplicar conhecimentos sólidos da Stack Reactjs/ NodeJs/ Javascript seguindo o escopo de um dev FullStack.
+Este projeto (MyContacts) tem o intuito de aplicar conhecimentos sólidos da Stack Reactjs/ NodeJs/ Javascript seguindo as responsabilidades de um dev FullStack.
 
 **Funcionalidades previstas:**
 
