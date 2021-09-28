@@ -1,3 +1,7 @@
+import dark from './dark';
+import light from './light';
+
 export default {
-  backgroundColor: '#F6F5FC',
+  dark,
+  light,
 };

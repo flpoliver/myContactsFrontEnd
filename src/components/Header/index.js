@@ -1,11 +1,12 @@
+import { useTheme } from 'styled-components';
 import { Container, InputSearchContainer } from './styles';
 
-import logo from '../../assets/images/logo.svg';
-
 export default function Header() {
+  const theme = useTheme();
+
   return (
     <Container>
-      <img src={logo} alt="MyContacts" width="201" />
+      <img src={theme.logo} alt="MyContacts" width="201" />
 
       <InputSearchContainer>
         <input type="text" placeholder="Pesquisar contato..." />
