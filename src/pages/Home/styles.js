@@ -8,6 +8,7 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 32px;
 
   strong {
     color: ${({ theme }) => theme.textColor};
@@ -26,6 +27,26 @@ export const Header = styled.header`
     &:hover {
       background: ${({ theme }) => theme.primaryColor.main};
       color: #FFF;
+    }
+  }
+`;
+
+export const InputSearchContainer = styled.div`
+  width: 100%;
+
+  input {
+    width: 100%;
+    background: #FFF;
+    border-radius: 25px;
+    border: none;
+    border-radius: 25px;
+    height: 50px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.04);
+    outline: 0;
+    padding: 0 16px;
+
+    &::placeholder {
+      color: #BCBCBC;
     }
   }
 `;
