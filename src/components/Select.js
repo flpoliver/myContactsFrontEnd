@@ -14,6 +14,6 @@ export default styled.select`
   transition: border-color 0.2s ease-in;
 
   &:focus {
-    border-color: ${({ theme }) => theme.primaryColor.main}
+    border-color: ${({ theme }) => theme.primaryColor.lighter}
   }
 `;
