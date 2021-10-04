@@ -6,6 +6,7 @@ export default {
   logo,
   primaryColor: {
     lighter: '#E0E3FF',
+    buttonLighter: '#6674F4',
     light: '#6674F4',
     main: '#5061FC',
     dark: '#3346F0',

@@ -13,7 +13,7 @@ export default styled.button`
   transition: all 0.2s ease-in;
 
   &:hover {
-    background: ${({ theme }) => theme.primaryColor.lighter};
+    background: ${({ theme }) => theme.primaryColor.buttonLighter};
   }
 
   &:active {

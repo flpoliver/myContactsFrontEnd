@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin-top: 32px;
+
 `;
 
 export const Header = styled.header`
@@ -80,6 +81,8 @@ export const Card = styled.div`
   align-items: center;
   justify-content: space-between;
 
+
+
   & + & {
     margin-top: 16px;
   }
@@ -108,14 +111,31 @@ export const Card = styled.div`
     color:${({ theme }) => theme.gray[200]}
   }
 
+
+
   .actions {
     display: flex;
     align-items: center;
+    transition: all 2s ease-in;
+
 
     button {
       background: transparent;
       border: none;
       margin-left: 8px;
+
+    }
+
+    img {
+      opacity: 0.6;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1.2);
+      }
     }
   }
+
+
 `;
