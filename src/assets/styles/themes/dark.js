@@ -15,6 +15,11 @@ export default {
     900: '#e7e6f0',
     200: '#d6d4d4',
   },
+  danger: {
+    light: '#F97171',
+    main: '#FC5050',
+    dark: '#F63131',
+  },
   backgroundColor: '#222',
   backgroundCard: '#444',
   textColor: '#fff',
