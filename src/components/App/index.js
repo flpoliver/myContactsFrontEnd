@@ -13,7 +13,7 @@ import { Container } from './styles';
 function App() {
   return (
     <BrowserRouter>
-      <ThemeProvider theme={defaultTheme.dark}>
+      <ThemeProvider theme={defaultTheme.light}>
         <GlobalStyles />
 
         <Container>
