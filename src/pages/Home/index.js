@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+import { useEffect, useState } from 'react';
 import {
   Container, Header, ListContainer, Card, InputSearchContainer,
 } from './styles';
@@ -11,6 +12,20 @@ import trash from '../../assets/images/icons/trash.svg';
 // import Modal from '../../components/Modal';
 
 export default function Home() {
+  const [contacts, setContacts] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/contacts')
+      .then(async (res) => {
+        const json = await res.json();
+        setContacts(json);
+        console.log(json);
+      })
+      .catch((error) => {
+        console.log('erro', error);
+      });
+  }, []);
+
   return (
     <Container>
 
@@ -19,7 +34,11 @@ export default function Home() {
       </InputSearchContainer>
 
       <Header>
-        <strong>3 contatos</strong>
+        <strong>
+          {contacts.length}
+          {' '}
+          contatos
+        </strong>
         <Link to="/new">Novo contato</Link>
       </Header>
 
@@ -30,78 +49,31 @@ export default function Home() {
             <img src={arrow} alt="Arrow" />
           </button>
         </header>
-
-        <Card>
-          <div className="info">
-            <div className="contact-name">
-              <strong>Felipe Oliveira</strong>
-              <small>instagram</small>
+        {contacts.map((contact) => (
+          <Card key={contact.id}>
+            <div className="info">
+              <div className="contact-name">
+                <strong>{contact?.name}</strong>
+                <small>{contact?.category_name}</small>
+              </div>
+              <span>{contact?.email}</span>
+              <span>{contact?.phone}</span>
             </div>
-            <span>oliver@dev.com</span>
-            <span>(11) 99999-8888</span>
-          </div>
 
-          <div className="actions">
-            <Link to="/edit/1">
-              <img src={edit} alt="Edit" />
-            </Link>
-            <button type="button">
-              <img src={trash} alt="Delete" />
-            </button>
-          </div>
-        </Card>
-        <Card>
-          <div className="info">
-            <div className="contact-name">
-              <strong>Felipe Oliveira</strong>
-              <small>instagram</small>
+            <div className="actions">
+              <Link to="/edit/1">
+                <img src={edit} alt="Edit" />
+              </Link>
+              <button type="button">
+                <img src={trash} alt="Delete" />
+              </button>
             </div>
-            <span>oliver@dev.com</span>
-            <span>(11) 99999-8888</span>
-          </div>
-
-          <div className="actions">
-            <Link to="/edit/1">
-              <img src={edit} alt="Edit" />
-            </Link>
-            <button type="button">
-              <img src={trash} alt="Delete" />
-            </button>
-          </div>
-        </Card>
-        <Card>
-          <div className="info">
-            <div className="contact-name">
-              <strong>Felipe Oliveira</strong>
-              <small>instagram</small>
-            </div>
-            <span>oliver@dev.com</span>
-            <span>(11) 99999-8888</span>
-          </div>
-
-          <div className="actions">
-            <Link to="/edit/1">
-              <img src={edit} alt="Edit" />
-            </Link>
-            <button type="button">
-              <img src={trash} alt="Delete" />
-            </button>
-          </div>
-        </Card>
+          </Card>
+        ))}
       </ListContainer>
     </Container>
   );
 }
-
-fetch('http://localhost:3001/contacts')
-  .then(async (res) => {
-    const json = await res.json();
-    console.log('response', res);
-    console.log('json', json);
-  })
-  .catch((error) => {
-    console.log('erro', error);
-  });
 
 // SOP -> Same Origin Policy -> Política de mesma origem
 // CORS -> Cross-Origin Resource Sharing -> Compartilhamento ded recursos entre origens diferentes
