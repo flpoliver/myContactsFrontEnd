@@ -92,3 +92,23 @@ export default function Home() {
     </Container>
   );
 }
+
+fetch('http://localhost:3001/contacts')
+  .then(async (res) => {
+    const json = await res.json();
+    console.log('response', res);
+    console.log('json', json);
+  })
+  .catch((error) => {
+    console.log('erro', error);
+  });
+
+// SOP -> Same Origin Policy -> Política de mesma origem
+// CORS -> Cross-Origin Resource Sharing -> Compartilhamento ded recursos entre origens diferentes
+// Origem: protocolo://domínio:porta
+
+//    Saída: http://localhost:3000
+//  Destino: http://localhost:3001
+
+// Preflight -> Pré-voô
+// OPTIONS http://localhost:3001/contacts
