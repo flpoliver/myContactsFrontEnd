@@ -19,7 +19,6 @@ export default function Home() {
       .then(async (res) => {
         const json = await res.json();
         setContacts(json);
-        console.log(json);
       })
       .catch((error) => {
         console.log('erro', error);
@@ -37,7 +36,7 @@ export default function Home() {
         <strong>
           {contacts.length}
           {' '}
-          contatos
+          {contacts.length === 1 ? 'contato' : 'contatos'}
         </strong>
         <Link to="/new">Novo contato</Link>
       </Header>
@@ -54,14 +53,14 @@ export default function Home() {
             <div className="info">
               <div className="contact-name">
                 <strong>{contact?.name}</strong>
-                <small>{contact?.category_name}</small>
+                {contact.category_name && <small>{contact?.category_name}</small>}
               </div>
               <span>{contact?.email}</span>
               <span>{contact?.phone}</span>
             </div>
 
             <div className="actions">
-              <Link to="/edit/1">
+              <Link to={`/edit/${contact.id}`}>
                 <img src={edit} alt="Edit" />
               </Link>
               <button type="button">
